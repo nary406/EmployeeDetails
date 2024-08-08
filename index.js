@@ -126,21 +126,7 @@ app.get('/userdetails', async (req, res) => {
 });
 
 
-app.get('/user/id', async (req, res) => {
-   
-    try {
-        const employees = await UserProfile.findById(req.params.id); 
 
-        if(!employees){
-            res.send("notFound")
-        }else{
-            res.json(employees);
-        }
-    } catch (error) {
-        console.error('Error fetching employees:', error);
-        res.status(500).json({ message: 'Internal server error' });
-    }
-});
 
 
 app.put("/user/:id", async (req, res) => {
